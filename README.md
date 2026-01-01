@@ -89,6 +89,12 @@ This function performs a full sensor initialization:
 - Loading factory calibration data
 - Writing all configuration registers
 
+**Returns**:
+**In short: `BMP280_Config()` returns**
+
+- `0` - Success (sensor ready, good chip ID, config written)  
+- Negative (< `0`) - Error (most common: `-1` = I2C fail, `-2` = wrong chip ID)
+
 **Parameter overview**:
 
 | Parameter  | Meaning                              | Most useful / recommended values                          | Impact / Notes                                                                 |
@@ -99,7 +105,7 @@ This function performs a full sensor initialization:
 | `t_sb`     | Standby time (Normal mode only)      | `BMP280_T_SB_500`, `BMP280_T_SB_1000`, `BMP280_T_SB_250` | Time between measurements - affects power consumption and sampling rate        |
 | `filter`   | IIR filter coefficient for pressure  | `BMP280_FILTER_4`, `BMP280_FILTER_8`, `BMP280_FILTER_OFF` | Stronger filtering = smoother output but slower response to real pressure changes |
 
-**Recommended starting point** (very good balance between accuracy, speed and power):
+**Recommended basic configuration** :
 
 ```c
 BMP280_Config(BMP280_MODE_NORMAL, BMP280_OSRS_2, BMP280_OSRS_8, BMP280_T_SB_500, BMP280_FILTER_4);
