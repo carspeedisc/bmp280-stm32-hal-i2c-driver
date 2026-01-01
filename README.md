@@ -29,7 +29,7 @@ Change to `0x76 << 1` in `BMP280.h` if SDO is connected to GND.
 
 ## Installation
 
-Copy the `BMP280_HAL` folder into your STM32CubeIDE project.
+Copy the `BMP280_I2C` folder into your STM32CubeIDE project.
 
 (or clone directly)
 
@@ -42,7 +42,7 @@ git clone https://github.com/carspeedisc/bmp280-stm32-hal-i2c-driver.git
 Call this **once** after I2C is initialized:
 
 ```c
-#include "BMP280_HAL.h"
+#include "BMP280.h"
 
 int main(void)
 {
